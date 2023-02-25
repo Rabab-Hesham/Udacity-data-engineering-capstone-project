@@ -1,27 +1,3 @@
-## Project objective:
-
-The objective of the project is to create an ETL pipeline for I94 immigration, global temperatures and US demographics datasets to form an analytics database on immigration events over time. The resulting database will be helpful in many analytical aspects like the affect of the temperature on the number of immigrant, gender and race of immigrants etc.
-
-# The project steps:
-1- Scope the Project and Gather Data
-2- Explore and Assess the Data
-3- Define the Data Model
-4- Run ETL to Model the Data
-5- Complete Project Write Up
-
-# Scope the Project:
-
-Spark and pandas will be used to load the data into dataframes and explore them. Once the datacleaned, the same steps with a little modifications will be used to parquet files and stored in an output folder.
-To parquet thefiles, I  prefered using pandas at first to clea the data, since I noticed tht saves a lot if time, and then converting data to spark and parquet them.
-
-te data consists of:
-- I94 Immigration Data: This data comes from the US National Tourism and Trade Office. 
-- World Temperature Data: This dataset came from Kaggle. 
-- U.S. City Demographic Data: This data comes from OpenSoft.
-
-
-# Data Model:
-
 star schema will be used
 
 The Fact Table: I94 Immigration Data
@@ -34,9 +10,14 @@ i94port --> Port_of_admission
 arrdate --> arrival_date
 i94addr --> state_code
 depdate --> departure_date
-## Data dictionary 
+
 
 # Dimension tables
+our schema consists of 6 dimension tables:
+1- Three dimension tables created from I94 Immigration Data: (dim_visa, dim_flag, and dim_immigrant)
+3 - Two dimension tables extracted from U.S. City Demographic Data (dim_city and dim_Population)
+2- dim_temperature: it's data extracted from world Temperature Data
+
 1- dim_visa
 
 cicid --> Unique identifier
